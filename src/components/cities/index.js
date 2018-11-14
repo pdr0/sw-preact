@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import cities from '../../city.list.json';
+import cities from '../../cities.json';
 import style from './style';
 
 export default class Cities extends Component {
@@ -11,9 +11,10 @@ export default class Cities extends Component {
 	render({}, { cities }) {
 		return (
 			<div className={style.cities}>
-				{/*{cities.map((c) => {*/}
-					{/*console.log(c);*/}
-				{/*})}*/}
+				{cities.map((c) => {
+					console.log('city:', c.name)
+				})}
+
 
 			</div>
 		);
