@@ -1,13 +1,14 @@
 {
   "private": true,
   "name": "sw-preact",
-  "version": "0.0.0",
+  "author": "Pedro Selas - me@pedroselas.com",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build",
     "serve": "preact build && preact serve",
-    "dev": "preact watch",
+    "dev": "preact watch --https",
     "lint": "eslint src",
     "test": "jest"
   },
@@ -24,6 +25,7 @@
     "if-env": "^1.0.0",
     "jest": "^21.2.1",
     "preact-cli": "^2.1.0",
+    "preact-cli-sw-precache": "^1.0.3",
     "preact-render-spy": "^1.2.1"
   },
   "dependencies": {
