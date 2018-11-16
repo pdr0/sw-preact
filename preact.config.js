@@ -11,7 +11,8 @@ const preactCliSwPrecachePlugin = require('preact-cli-sw-precache');
 export default function (config, env, helpers) {
 	const precacheConfig = {
 		staticFileGlobs: [
-			'city.list.json',
+			'src/city.list.json',
+			'src/cities.json',
 		],
 		filename: 'sw.js',
 		clientsClaim: true,

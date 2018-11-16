@@ -11,9 +11,9 @@ export default class Cities extends Component {
 	render({}, { cities }) {
 		return (
 			<div className={style.cities}>
-				{cities.map((c) => {
-					console.log('city:', c.name)
-				})}
+				{/*{cities.map((c) => {*/}
+					{/*console.log('city:', c.name)*/}
+				{/*})}*/}
 
 
 			</div>

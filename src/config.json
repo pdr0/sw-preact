@@ -1,0 +1,6 @@
+{
+  "weatherApi":{
+    "apiKey":"52332b0020edba9c8e65b458663e84f3",
+    "endpoint" : "https://api.openweathermap.org/data/2.5/"
+  }
+}
