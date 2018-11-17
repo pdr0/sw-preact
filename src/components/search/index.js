@@ -1,13 +1,10 @@
 import { h, Component } from 'preact';
 import { connect } from 'preact-redux';
-import reduce from '../../reducers';
-import * as actions from '../../actions';
+import { fetchCityById } from '../../actions/';
 import styles from './style.css';
 import cities from '../../cities.json';
-import config from '../../config.json';
 
-@connect(reduce, actions)
-export default class Search extends Component {
+class Search extends Component {
 
 	constructor(props) {
 		super();
@@ -19,6 +16,7 @@ export default class Search extends Component {
 	handleOnclickCity = (cityId) => {
 		this.setState({ found: [], cityId });
 		this.inputSearch.value = null;
+		this.props.fetchCityById(this.state.cityId);
 	};
 
 	handleInputChange = (e) => {
@@ -36,24 +34,14 @@ export default class Search extends Component {
 		}
 	};
 
-	componentDidUpdate = () => {
-		this.state.cityId ? this.fetchWeatherId(this.state.cityId) : null;
+	componentWillReceiveProps(nextProps) {
+		console.log('nextProps', nextProps);
 	};
 
-	fetchWeatherId(cityId) {
-		const url = `${config.weatherApi.endpoint}weather/?id=${cityId}&APPID=${config.weatherApi.apiKey}`;
-		fetch(url)
-			.then(function(response) {
-				return response.json();
-			})
-			.then(function(myJson) {
-				console.log(myJson);
-			});
-	};
 
 	render({}, { found }) {
 		return (
-			<div>
+			<div className={styles.search}>
 				<input
 					placeholder='Jot a city...'
 					onKeyUp={(e) => this.handleInputChange(e)}
@@ -64,3 +52,12 @@ export default class Search extends Component {
 		);
 	}
 }
+
+const mapStateToProps = (state) => ({
+	city: state.city
+});
+
+
+const mapDispatchToProps = (dispatch) => ({ fetchCityById: (cityId) => dispatch(fetchCityById(cityId)) });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

@@ -1,12 +1,14 @@
 import { Provider } from 'preact-redux';
-import store from './store';
+import configureStore from './config/';
 import App from './components/app';
 import './style';
+
+const store = configureStore({ city: null });
 
 export default () => (
 	<div id="outer">
 		<Provider store={store}>
-			<App />
+			<App/>
 		</Provider>
 	</div>
 );
