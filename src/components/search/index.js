@@ -1,8 +1,12 @@
 import { h, Component } from 'preact';
+import { connect } from 'preact-redux';
+import reduce from '../../reducers';
+import * as actions from '../../actions';
 import styles from './style.css';
 import cities from '../../cities.json';
 import config from '../../config.json';
 
+@connect(reduce, actions)
 export default class Search extends Component {
 
 	constructor(props) {
@@ -43,7 +47,7 @@ export default class Search extends Component {
 				return response.json();
 			})
 			.then(function(myJson) {
-				console.log(JSON.stringify(myJson));
+				console.log(myJson);
 			});
 	};
 
