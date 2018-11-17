@@ -3,7 +3,7 @@ import config from '../config';
 
 export const fetchCityById = (cityId) => {
 	return (dispatch) => {
-		const url = `${config.weatherApi.endpoint}weather/?id=${cityId}&APPID=${config.weatherApi.apiKey}`;
+		const url = `${config.weatherApi.endpoint}weather/?id=${cityId}&units=metric&APPID=${config.weatherApi.apiKey}`;
 		fetch(url)
 			.then(function (response) {
 				return response.json();

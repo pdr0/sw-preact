@@ -1,14 +1,19 @@
-import { h } from 'preact';
+import { h, Component } from 'preact';
 import style from './style';
 import Search from '../../components/search';
 import Forecast from '../../components/forecast';
+import { connect } from 'preact-redux';
 
+@connect((state) => ({ city: state.city }))
+export default class Home extends Component {
 
-const Home = () => (
-	<div class={style.home}>
-		<Search />
-		<Forecast />
-	</div>
-);
+	render(props) {
 
-export default Home;
+		return (
+			<div className={style.home}>
+				<Search/>
+				{props.city ? <Forecast city={props.city.cityData}/> : null}
+			</div>
+		);
+	}
+}
