@@ -1,6 +1,16 @@
-# sw-preact
+#Cache mechanism with service workers.
+
+##A real-time forecast application built in preactjs, redux and preact-cli.
+
+Workshop/presentation Content:
+- A brief introduction to service workers
+- Why cache?
+- Examples of caching with service-worker 
+- Forecast APP using service-workers caching
+
 
 ## CLI Commands
+
 
 ``` bash
 # install dependencies
@@ -20,3 +30,5 @@ npm run test
 ```
 
 For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
+
+ 
