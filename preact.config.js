@@ -12,11 +12,17 @@ export default function (config, env, helpers) {
 	const precacheConfig = {
 		staticFileGlobs: [
 			'src/city.list.json',
-			'src/cities.json',
+			'src/cities.json'
 		],
 		filename: 'sw.js',
 		clientsClaim: true,
 		skipWaiting: true,
+		runtimeCaching: [
+			{
+				urlPattern: '/',
+				handler: 'networkFirst'
+			}
+		]
 	};
 
 	return preactCliSwPrecachePlugin(config, precacheConfig);

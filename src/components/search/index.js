@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import { connect } from 'preact-redux';
-import { fetchCityById } from '../../actions/';
+import { fetchCityById, fetchCitiesData } from '../../actions/';
 import styles from './style.css';
 import cities from '../../cities.json';
 
@@ -11,6 +11,10 @@ class Search extends Component {
 		this.state = {
 			found: []
 		};
+	}
+
+	componentWillMount(){
+		this.props.fetchCitiesData();
 	}
 
 	handleOnclickCity = (cityId) => {
@@ -54,10 +58,11 @@ class Search extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	city: state.city
+	city: state.city,
+	citiesList: state.citiesList
 });
 
 
-const mapDispatchToProps = (dispatch) => ({ fetchCityById: (cityId) => dispatch(fetchCityById(cityId)) });
+const mapDispatchToProps = (dispatch) => ({ fetchCityById: (cityId) => dispatch(fetchCityById(cityId)), fetchCitiesData: ()=> dispatch(fetchCitiesData()) });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
