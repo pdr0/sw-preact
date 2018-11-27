@@ -19,7 +19,7 @@ export const fetchCityById = (cityId) => {
 
 export const fetchCitiesData = () => {
 	return (dispatch) => {
-		const url = 'https://raw.githubusercontent.com/pdr0/sw-preact/master/src/cities.json?token=ABtIcjlXLTT9UXqapE6MfEIqZl3j3Ppxks5cBVfHwA%3D%3D';
+		const url = 'https://localhost:8080/cities.json';
 		fetch(url)
 			.then(function (response) {
 				return response.json();
