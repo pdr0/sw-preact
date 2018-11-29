@@ -1,4 +1,4 @@
-const preactCliSwPrecachePlugin = require('preact-cli-sw-precache');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 /**
  * Function that mutates original webpack config.
@@ -9,24 +9,16 @@ const preactCliSwPrecachePlugin = require('preact-cli-sw-precache');
  * @param {WebpackConfigHelpers} helpers - object with useful helpers when working with config.
  **/
 export default function (config, env, helpers) {
-	const precacheConfig = {
-		staticFileGlobs: [
-			'src/city.list.json',
-			'src/cities.json'
-		],
+	config.plugins.push(
+		new WorkboxPlugin.InjectManifest({
+			importWorkboxFrom: 'cdn',
+			swSrc: './service-worker.js',
+			swDest: './service-worker.js',
+			include: [/\.html$/, /\.js$/, /\.svg$/, /\.css$/, /\.png$/, /\.ico$/],
+			importsDirectory: './src/raw'
+		}),
+	);
 
-		runtimeCaching: [{
-			urlPattern: /src/,
-			handler: 'cacheFirst'
-		}, {
-			urlPattern: /api\/yourSuperCriticalAPI\//,
-			handler: 'networkOnly'
-		}],
-		filename: 'service-worker.js',
-		skipWaiting: true,
-		clientsClaim: true
-	};
-
-	return preactCliSwPrecachePlugin(config, precacheConfig);
+	return config;
 }
 

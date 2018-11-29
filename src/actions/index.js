@@ -19,7 +19,7 @@ export const fetchCityById = (cityId) => {
 
 export const fetchCitiesData = () => {
 	return (dispatch) => {
-		const url = 'https://localhost:8080/cities.json';
+		const url = 'https://localhost:8080/raw/cities.json';
 		fetch(url)
 			.then(function (response) {
 				return response.json();
