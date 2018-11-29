@@ -1,3 +1,24 @@
 .search{
 	background-color: #FAFAFA;
+	width: 100%;
+	text-align: center;
+	position: relative;
+	margin-top: 100px;
+}
+
+.search input{
+	height: 44px;
+	min-width: 280px;
+	padding-left: 10px;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+.search a{
+	text-decoration: none;
+	color: black;
+}
+
+.search a:hover{
+	font-weight: bold;
 }

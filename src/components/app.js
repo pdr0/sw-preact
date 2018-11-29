@@ -3,9 +3,7 @@ import { Router } from 'preact-router';
 import Header from './header';
 import { connect } from 'preact-redux';
 
-// Code-splitting is automated for routes
 import Home from '../routes/home';
-import ForecastPage from '../routes/forecast';
 
 export default class App extends Component {
 
@@ -24,7 +22,6 @@ export default class App extends Component {
 				<Header/>
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
-					<ForecastPage path="/forecast" />
 				</Router>
 			</div>
 		);

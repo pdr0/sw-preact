@@ -38,10 +38,6 @@ class Search extends Component {
 		}
 	};
 
-	componentWillReceiveProps(nextProps) {
-		console.log('nextProps', nextProps);
-	};
-
 
 	render({}, { found }) {
 		return (
@@ -51,7 +47,7 @@ class Search extends Component {
 					onKeyUp={(e) => this.handleInputChange(e)}
 					ref={el => this.inputSearch = el}
 				/>
-				{found.map((city) => <p onClick={() => this.handleOnclickCity(city.id)}>{city.name}</p>)}
+				{found.map((city) => <p><a href="#" onClick={() => this.handleOnclickCity(city.id)}>{city.name}</a></p>)}
 			</div>
 		);
 	}

@@ -14,15 +14,17 @@ export default function (config, env, helpers) {
 			'src/city.list.json',
 			'src/cities.json'
 		],
-		filename: 'sw.js',
-		clientsClaim: true,
+
+		runtimeCaching: [{
+			urlPattern: /src/,
+			handler: 'cacheFirst'
+		}, {
+			urlPattern: /api\/yourSuperCriticalAPI\//,
+			handler: 'networkOnly'
+		}],
+		filename: 'service-worker.js',
 		skipWaiting: true,
-		runtimeCaching: [
-			{
-				urlPattern: '/',
-				handler: 'networkFirst'
-			}
-		]
+		clientsClaim: true
 	};
 
 	return preactCliSwPrecachePlugin(config, precacheConfig);
