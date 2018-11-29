@@ -14,8 +14,8 @@ export default function (config, env, helpers) {
 			importWorkboxFrom: 'cdn',
 			swSrc: './service-worker.js',
 			swDest: './service-worker.js',
-			include: [/\.html$/, /\.js$/, /\.svg$/, /\.css$/, /\.png$/, /\.ico$/],
-			importsDirectory: './src/raw'
+			include: [/\.html$/, /\.js$/, /\.svg$/, /\.css$/, /\.png$/, /\.ico$/, /\.jpg$/],
+			importsDirectory: './src/assets'
 		}),
 	);
 
