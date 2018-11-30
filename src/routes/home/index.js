@@ -11,8 +11,9 @@ export default class Home extends Component {
 
 		return (
 			<div className={style.home}>
-				<img src="../../assets/header.jpg" width="400"/>
-				<p>Test</p>
+				<div className={style.imghead}>
+					<img src="../../assets/header.jpg" />
+				</div>
 				<Search/>
 				{props.city ? <Forecast city={props.city.cityData}/> : null}
 			</div>
